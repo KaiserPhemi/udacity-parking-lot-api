@@ -6,7 +6,7 @@ dotenv.config();
 import app from './src/app';
 
 // server variables
-const port = process.env.PORT;
+const port = process.env.PORT || 7070;
 const hostName = process.env.HOSTNAME;
 
 // redisClient.get();

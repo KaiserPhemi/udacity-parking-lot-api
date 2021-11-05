@@ -10,7 +10,6 @@ import cookieParser from 'cookie-parser';
 import mainRouter from './api';
 
 const { urlencoded, json } = express;
-const isProduction = process.env.NODE_ENV === "production";
 
 // Create global app Objects
 const app: Application = express();
