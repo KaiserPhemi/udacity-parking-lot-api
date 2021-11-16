@@ -16,7 +16,11 @@ const userCtrl = {
     try {
       // TODO check if user exist; return error if yes else continue
       // TODO add user to database
-      // TODO return user details
+      return res
+        .status(201)
+        .json({
+          message: "User registered successfully."
+        })
     } catch (error) {
       errorResponse(error, res);
     }
