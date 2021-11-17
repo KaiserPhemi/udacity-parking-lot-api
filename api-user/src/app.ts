@@ -22,7 +22,7 @@ app.use(json());
 app.use(cookieParser());
 
 // base routes
-app.use('/api/v0', mainRouter)
+app.use('/api/v1', mainRouter)
 app.use('/', (req: Request, res: Response) => {
   return res.status(200).json({
     message: `Server is running on port: ${process.env.PORT}`,

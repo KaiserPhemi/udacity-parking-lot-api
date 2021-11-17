@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
+    "allowJs": true,
     "strict": true,
     "esModuleInterop": true,
     "strictNullChecks": false,
@@ -18,7 +19,9 @@
     "skipLibCheck": true
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "index.ts",
+    "knexfile.ts"
   ],
   "exclude": [
     "node_modules/**/*"

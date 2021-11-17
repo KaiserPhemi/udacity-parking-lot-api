@@ -1,9 +1,9 @@
 # This file is used for convenience of local development.
 # DO NOT STORE YOUR CREDENTIALS INTO GIT
-export POSTGRES_USERNAME=phemi
+export POSTGRES_USERNAME=oluwafemiakinwa
 export POSTGRES_PASSWORD=atawewe.bas
 export POSTGRES_HOST=
-export POSTGRES_DB=postgres
+export POSTGRES_DB=parking_api
 export AWS_BUCKET=arn:aws:s3:::microservices-230155036963-dev
 export AWS_REGION=us-east-1
 export PORT=7070
