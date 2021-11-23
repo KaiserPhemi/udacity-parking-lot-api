@@ -1,17 +1,16 @@
 // third-party libraries
 import express from 'express';
 
+// controller
+import carCtrl from './carController';
+
 // router
 const carRouter = express.Router();
 
 //
 carRouter
   .route('/')
-  .post(() => {
-    //add car
-    console.log('THE CARS')
-    return
-  })
-  .get(() => console.log('Get all cars'))
+  .post(carCtrl.addCar)
+  .get(carCtrl.getAllCars)
 
 export default carRouter;
