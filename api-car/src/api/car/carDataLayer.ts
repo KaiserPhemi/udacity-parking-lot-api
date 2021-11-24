@@ -1,12 +1,31 @@
+// database connection
 import db from '../../../config/db';
 
+//
 const carService = {
-  async addCar(): Promise<any> {
+  /**
+   * Add a new car
+   * @param registrationNo 
+   * @param brand 
+   * @param model 
+   * @param ownerEmail 
+   * @returns 
+   */
+  async addCar(
+    registrationNo: string,
+    brand: string,
+    model: string,
+    ownerEmail: string
+  ): Promise<any> {
     try {
       const newCar = await db('cars')
-        .insert({})
+        .insert({
+          registration_no: registrationNo,
+          brand,
+          model,
+          owner_email: ownerEmail
+        })
         .returning('*');
-
       return newCar[0];
     } catch (error) {
       return error;

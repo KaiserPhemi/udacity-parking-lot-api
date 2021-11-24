@@ -31,11 +31,17 @@ const carCtrl = {
             message: "User does not exist"
           })
       }
-      // TODO Add car with details
+      const newCar = await carService.addCar(
+        registrationNo,
+        brand,
+        model,
+        ownerEmail
+      );
       return res
         .status(201)
         .json({
-          message: 'New car added'
+          message: 'New car added',
+          car: newCar
         })
     } catch (error) {
       return errorResponse(error, res);
