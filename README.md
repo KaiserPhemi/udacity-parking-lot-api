@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/KaiserPhemi/udacity-parking-lot-api.svg?style=svg)](https://app.circleci.com/pipelines/github/KaiserPhemi/udacity-parking-lot-api)
+
 # udacity-parking-lot-api
 A parking lot API to manage parking spaces in a facility
 
@@ -12,3 +14,4 @@ It handles
 
 ## Author
 - Oluwafemi Akinwa
+

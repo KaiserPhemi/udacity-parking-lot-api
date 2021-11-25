@@ -22,17 +22,19 @@ jobs:
       - run: 
           name: "Build and tag images"
           command: |
+            echo 'export BUILD_VERSION=$CIRCLE_BUILD_NUM' >> $BASH_ENV
+            source $BASH_ENV
             docker --version 
             docker build -t park-api-user ./api-user
             docker build -t park-api-car ./api-car
             docker build -t reverse-proxy ./reverse-proxy
-            docker tag reverse-proxy officialphemi/reverse-proxy
+            docker tag reverse-proxy officialphemi/reverse-proxy:"$CIRCLE_BUILD_NUM"
             docker tag park-api-user officialphemi/park-api-user
             docker tag park-api-car officialphemi/park-api-car
             echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
             docker push officialphemi/park-api-user
             docker push officialphemi/park-api-car
-            docker push officialphemi/reverse-proxy
+            docker push officialphemi/reverse-proxy:"$CIRCLE_BUILD_NUM"
 workflows:
   scripts:
     jobs:
