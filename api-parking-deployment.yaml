@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-parking
+  labels:
+    app: api-parking
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api-parking
+  template:
+    metadata:
+      labels:
+        app: api-parking
+    spec:
+      containers:
+      - name: api-parking
+        image: officialphemi/park-api-parking
+        ports:
+        - containerPort: 80
+      restartPolicy: Always
