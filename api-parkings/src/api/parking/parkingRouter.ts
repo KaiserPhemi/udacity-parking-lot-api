@@ -21,6 +21,6 @@ parkingRouter
 parkingRouter
   .route('/:id')
   .get(parkingCtrl.fetchParking)
-  .put(parkingCtrl.updateParking)
+  .put(parkingCtrl.updateParking);
 
 export default parkingRouter;

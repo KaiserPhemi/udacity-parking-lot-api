@@ -27,13 +27,16 @@ jobs:
             docker --version 
             docker build -t park-api-user ./api-user
             docker build -t park-api-car ./api-car
+            docker build -t park-api-parkings ./api-parkings
             docker build -t reverse-proxy ./reverse-proxy
             docker tag reverse-proxy officialphemi/reverse-proxy:"$CIRCLE_BUILD_NUM"
-            docker tag park-api-user officialphemi/park-api-user
-            docker tag park-api-car officialphemi/park-api-car
+            docker tag park-api-user officialphemi/park-api-user:"$CIRCLE_BUILD_NUM"
+            docker tag park-api-car officialphemi/park-api-car:"$CIRCLE_BUILD_NUM"
+            docker tag park-api-car officialphemi/park-api-parkings:"$CIRCLE_BUILD_NUM"
             echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-            docker push officialphemi/park-api-user
-            docker push officialphemi/park-api-car
+            docker push officialphemi/park-api-user:"$CIRCLE_BUILD_NUM"
+            docker push officialphemi/park-api-car:"$CIRCLE_BUILD_NUM"
+            docker push officialphemi/park-api-parkings:"$CIRCLE_BUILD_NUM"
             docker push officialphemi/reverse-proxy:"$CIRCLE_BUILD_NUM"
 workflows:
   scripts:

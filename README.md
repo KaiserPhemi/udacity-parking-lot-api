@@ -9,9 +9,14 @@ It handles
 - Car owner registraation
 - Car registration
 - Parking Activities/Transactions
-- Parking Lot Management
+
+## API Endpoints
+- `localhost:7070/api/v1`: Base end point
+- `/cars`:
+- `/users`:
+- `/parkings`:
 
 
-## Author
+## Contributor
 - Oluwafemi Akinwa
 

@@ -2,7 +2,7 @@
 import { Request, Response } from 'express';
 
 // service
-import userDataLayer from './parkingDataLayer';
+import parkingService from './parkingDataLayer';
 
 // helper function
 import errorResponse from '../../helper/errorResponse';
@@ -21,10 +21,19 @@ const parkingCtrl = {
       carRegNo,
       ownerEmail,
       parkedOn
-    } = req.body
+    } = req.body;
     try {
-      // TODO add parking
-      // TODO return data
+      const newParking = await parkingService.registerParking(
+        carRegNo,
+        ownerEmail,
+        parkedOn
+      );
+      return res
+        .status(201)
+        .json({
+          message: "New Parkng registered",
+          parking: newParking
+        })
     } catch (error) {
       return errorResponse(error, res);
     }
@@ -38,10 +47,19 @@ const parkingCtrl = {
    */
   async fetchAllParkings(req: Request, res: Response): Promise<any> {
     try {
+      const allParkings = await parkingService.fetchParkings();
+      if (allParkings.length === 0) {
+        return res
+          .status(404)
+          .json({
+            message: "No parking record found."
+          })
+      }
       return res
         .status(200)
         .json({
-          message: "All parkings fetched"
+          message: "All parkings fetched",
+          parkings: allParkings
         })
     } catch (error) {
       return errorResponse(error, res);
@@ -55,6 +73,7 @@ const parkingCtrl = {
    * @returns
    */
   async fetchParking(req: Request, res: Response): Promise<any> {
+    const { id } = req.params;
     try {
 
     } catch (error) {
