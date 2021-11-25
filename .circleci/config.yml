@@ -4,34 +4,37 @@ orbs:
 jobs:
   test:
     docker:
-      - image: circleci/docker@1.5.0
+      - image: circleci/node:12
     steps:
       - checkout
-      - run: echo "no tests"
-  build: 
+      - run: 
+          name: "Run test"
+          command: | 
+            echo "no tests"
+  build_and_deploy: 
     docker:
-      - image: circleci/docker@1.5.0
+      - image: circleci/node:12
     steps:
       - checkout
-      - run: docker --version # print the version for logging
-      - run: docker build -t park-api-user ./api-user
-      - run: docker build -t park-api-car ./api-car
-      - run: docker build -t reverse-proxy ./reverse-proxy
-      - run: docker tag reverse-proxy officialphemi/reverse-proxy
-      - run: docker tag park-api-user officialphemi/park-api-user
-      - run: docker tag park-api-car officialphemi/park-api-car
-  deploy:
-    docker:
-      - image: circleci/docker@1.5.0
-    steps:
-      - checkout
-      - run: echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-      - run: docker push officialphemi/park-api-user
-      - run: docker push officialphemi/park-api-car
-      - run: docker push officialphemi/reverse-proxy
+      - setup_remote_docker:
+          version: 19.03.13
+          docker_layer_caching: true
+      - run: 
+          name: "Build and tag images"
+          command: |
+            docker --version 
+            docker build -t park-api-user ./api-user
+            docker build -t park-api-car ./api-car
+            docker build -t reverse-proxy ./reverse-proxy
+            docker tag reverse-proxy officialphemi/reverse-proxy
+            docker tag park-api-user officialphemi/park-api-user
+            docker tag park-api-car officialphemi/park-api-car
+            echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+            docker push officialphemi/park-api-user
+            docker push officialphemi/park-api-car
+            docker push officialphemi/reverse-proxy
 workflows:
-  build_and_deploy:
+  scripts:
     jobs:
-      - build
-      - deploy
-      
+      - test
+      - build_and_deploy
