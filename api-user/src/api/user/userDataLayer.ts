@@ -39,7 +39,7 @@ const userService = {
   async fetchAllUsers(): Promise<any> {
     try {
       const allUsers = await db('all_users')
-        .select('*')
+        .select('*');
       return allUsers;
     } catch (error) {
       return error;
