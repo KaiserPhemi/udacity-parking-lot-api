@@ -10,8 +10,12 @@ It handles
 - Car registration
 - Parking Activities/Transactions
 
+Screenshot folder contains the screenshots of the following:
+- Circle CI build
+- Docker Hub Images
+
 ## API Endpoints
-- `localhost:7070/api/v1`: Base end point
+- `localhost:8080/api/v1`: Base end point
 - `/cars`:
 - `/users`:
 - `/parkings`:
