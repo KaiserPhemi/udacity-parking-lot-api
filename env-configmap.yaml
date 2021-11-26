@@ -5,7 +5,7 @@ data:
   AWS_PROFILE: default
   AWS_REGION: us-east-1
   JWT_SECRET: NUELU07Y0x4Em7ApOUlZhlrXqkc9RmXUVKku4ej4qyK8RfBZrcsQjZrsyrnQUuVhSx/3E+B3wQmLzrnt22LK0A
-  POSTGRES_DB: postgres
-  POSTGRES_HOST: database-1.coohpffikv6k.us-east-1.rds.amazonaws.com
+  POSTGRES_DB: parking_api
+  POSTGRES_HOST: parking-api.coohpffikv6k.us-east-1.rds.amazonaws.com
 metadata:
   name: env-config

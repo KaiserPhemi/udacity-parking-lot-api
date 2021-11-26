@@ -6,6 +6,7 @@ const dbConfig: { [key: string]: any } = {
       database: process.env.POSTGRES_DB,
       user: process.env.POSTGRES_USERNAME,
       password: process.env.POSTGRES_PASSWORD,
+      host: process.env.POSTGRES_HOST,
     },
     pool: {
       min: 2,

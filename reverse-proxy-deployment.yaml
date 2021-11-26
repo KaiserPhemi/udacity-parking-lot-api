@@ -15,7 +15,7 @@ spec:
         service: reverseproxy
     spec:
       containers:
-      - image: officialphemi/reverseproxy
+      - image: officialphemi/reverse-proxy
         name: reverseproxy
         imagePullPolicy: Always
         ports:

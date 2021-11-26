@@ -14,6 +14,14 @@ Screenshot folder contains the screenshots of the following:
 - Circle CI build
 - Docker Hub Images
 
+## Run Locally
+- Clone the repo.
+- Create the docker images by running `docker-compose -f docker-compose-build.yaml build --parallel` inside project's folder.
+- Run `docker-compose up` to get the containers up & running.
+- Make use of the environment variable in `set_env.sh` file
+
+
+
 ## API Endpoints
 - `localhost:8080/api/v1`: Base end point
 - `/cars`:
