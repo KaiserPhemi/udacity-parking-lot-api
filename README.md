@@ -16,10 +16,10 @@ Screenshot folder contains the screenshots of the following:
 
 ## Run Locally
 - Clone the repo.
+- Navigate to the project folder.
+- Run `source set_env.sh` to setup the environment variable.
 - Create the docker images by running `docker-compose -f docker-compose-build.yaml build --parallel` inside project's folder.
 - Run `docker-compose up` to get the containers up & running.
-- Make use of the environment variable in `set_env.sh` file
-
 
 
 ## API Endpoints
