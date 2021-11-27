@@ -5,12 +5,12 @@
   "author": "Oluwafemi Akinwa",
   "license": "MIT",
   "scripts": {
-    "start": "node .",
+    "start": "NODE_ENV=production node dist/index.js",
     "tsc": "tsc",
     "prod": "tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
     "dev": "ts-node-dev --respawn --transpile-only index.ts",
-    "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd .."
+    "build": "rm -rf dist && tsc"
   },
   "type": "module",
   "devDependencies": {
