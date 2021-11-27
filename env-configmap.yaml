@@ -1,11 +1,12 @@
 apiVersion: v1
 kind: ConfigMap
 data:
-  AWS_BUCKET: arn:aws:s3:::microservices-230155036963-dev
   AWS_PROFILE: default
   AWS_REGION: us-east-1
   JWT_SECRET: NUELU07Y0x4Em7ApOUlZhlrXqkc9RmXUVKku4ej4qyK8RfBZrcsQjZrsyrnQUuVhSx/3E+B3wQmLzrnt22LK0A
   POSTGRES_DB: parking_api
+  POSTGRES_USERNAME: postgres
+  POSTGRES_PASSWORD: postgres
   POSTGRES_HOST: parking-api.coohpffikv6k.us-east-1.rds.amazonaws.com
 metadata:
   name: env-config
