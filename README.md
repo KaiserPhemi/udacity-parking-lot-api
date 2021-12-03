@@ -23,7 +23,7 @@ Screenshot folder contains the screenshots of the following:
 
 
 ## API Endpoints
-- `localhost:8080/api/v1`: Base end point
+- `a673dc333cfad4484a0ebd93270c4c47-1859109553.us-east-1.elb.amazonaws.com:8080/api/v1`: Base end point
 - `/cars`:
 - `/users`:
 - `/parkings`:
